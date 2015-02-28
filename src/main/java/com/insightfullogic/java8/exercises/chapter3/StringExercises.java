@@ -8,14 +8,16 @@ import java.util.Optional;
 
 public class StringExercises {
 
-    // Question 7
+    // Question 6
     public static int countLowercaseLetters(String string) {
-        return Exercises.replaceThisWithSolution();
+    	//Can also use Character::isLowerCase
+    	return (int) string.chars().filter(c-> c > 96).count();
+       
     }
 
-    // Question 8
+    // Question 7
     public static Optional<String> mostLowercaseString(List<String> strings) {
-        return Exercises.replaceThisWithSolution();
+        return strings.stream().max(Comparator.comparing(StringExercises::countLowercaseLetters));
     }
 
 }
