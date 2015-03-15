@@ -1,12 +1,16 @@
 package com.insightfullogic.java8.exercises.chapter4;
 
+import java.util.Optional;
+
 import com.insightfullogic.java8.examples.chapter1.Artist;
 import com.insightfullogic.java8.examples.chapter1.SampleData;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class ArtistsTest {
 
@@ -14,13 +18,15 @@ public class ArtistsTest {
 
     @Test
     public void indexWithinRange() {
-        Artist artist = optionalExamples.getArtist(0);
+        Optional<Artist> artist = optionalExamples.getArtist(0);
         assertNotNull(artist);
+        assertTrue(artist.isPresent());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void indexOutsideRange() {
-        optionalExamples.getArtist(4);
+    	Optional<Artist> artist =  optionalExamples.getArtist(4);
+    	assertFalse(artist.isPresent());
     }
 
     @Test
