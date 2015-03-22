@@ -38,6 +38,7 @@ public class IntegerSum {
 
     @Setup
     public void createDataSources() {
+    	
         array = IntStream.range(0, size).toArray();
         arrayList = numbers().collect(toList());
         linkedList = new LinkedList<>(arrayList);

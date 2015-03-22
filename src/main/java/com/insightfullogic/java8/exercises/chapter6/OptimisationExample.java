@@ -31,12 +31,12 @@ public class OptimisationExample {
         Main.main(args);
     }
 
-    private List<Integer> linkedListOfNumbers;
+    private List<Integer> arrayListOfNumbers;
 
     @Setup
     public void init() {
-        linkedListOfNumbers = new LinkedList<>();
-        addNumbers(linkedListOfNumbers);
+        arrayListOfNumbers = new ArrayList<>();
+        addNumbers(arrayListOfNumbers);
 
         // TODO: put any additional setup code here
     }
@@ -49,7 +49,7 @@ public class OptimisationExample {
     @GenerateMicroBenchmark
     // BEGIN slowSumOfSquares
     public int slowSumOfSquares() {
-        return linkedListOfNumbers.parallelStream()
+        return arrayListOfNumbers.parallelStream()
                                   .map(x -> x * x)
                                   .reduce(0, (acc, x) -> acc + x);
     }
